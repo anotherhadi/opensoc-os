@@ -18,6 +18,14 @@
         ];
       };
 
+      zeus = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          { _module.args = { inherit inputs; }; }
+          ./hosts/zeus/configuration.nix
+        ];
+      };
+
     };
   };
 }
